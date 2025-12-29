@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take a Quiz - Quizzes</title>
+    <link rel="stylesheet" href="css/take-quiz.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img
+              src="assets/images/logo.png"
+              alt="logo"
+              width="50"
+              height="39"
+            />
+            <span>Quizzes</span>
+          </div>
+          <nav class="nav">
+            <a href="home.html">Home</a>
+            <a href="#quizzes">Quizzes</a>
+            <a href="#management">Management</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div class="user-avatar">
+            <img
+              src="assets/images/avatar.png"
+              alt="User Avatar"
+              width="40"
+              height="40"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Take Quiz Section -->
+    <section class="take-quiz-section">
+      <div class="container">
+        <h1>Take a Quiz</h1>
+        <div class="quiz-code-input">
+          <input
+            type="text"
+            id="quizCode"
+            placeholder="Enter quiz code to take a quiz"
+          />
+          <button class="btn btn-primary" onclick="submitQuizCode()">
+            Take Quiz
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quizzes Section -->
+    <section class="quizzes">
+      <div class="container">
+        <h2>QUIZZES</h2>
+        <div class="quiz-grid">
+          <!-- Quiz Card 1 -->
+          <div class="quiz-card">
+            <div class="quiz-image">
+              <img src="assets/images/world-map-1.png" alt="World Map" />
+            </div>
+            <div class="quiz-content">
+              <div class="quiz-header">
+                <h3>Capitals of Country</h3>
+                <span class="quiz-time">15m</span>
+              </div>
+              <p>Test your knowledge of country capitals</p>
+              <button class="btn btn-start" onclick="startQuiz(1)">
+                Start
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Card 2 -->
+          <div class="quiz-card">
+            <div class="quiz-image">
+              <img src="assets/images/quiz-icons.png" alt="Quiz Icons" />
+            </div>
+            <div class="quiz-content">
+              <div class="quiz-header">
+                <h3>Capitals of Country</h3>
+                <span class="quiz-time">15m</span>
+              </div>
+              <p>Test your knowledge of country capitals</p>
+              <button class="btn btn-start" onclick="startQuiz(2)">
+                Start
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Card 3 -->
+          <div class="quiz-card">
+            <div class="quiz-image">
+              <img src="assets/images/world-map-2.png" alt="World Map" />
+            </div>
+            <div class="quiz-content">
+              <div class="quiz-header">
+                <h3>Capitals of Country</h3>
+                <span class="quiz-time">15m</span>
+              </div>
+              <p>Test your knowledge of country capitals</p>
+              <button class="btn btn-start" onclick="startQuiz(3)">
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="logo">
+              <img
+                src="assets/images/logo.png"
+                alt="logo"
+                width="50"
+                height="39"
+              />
+              <span>Quizzes</span>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="#quizzes">Quizzes</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul class="contact-info">
+              <li>
+                <img
+                  src="assets/icons/email-icon.png"
+                  alt="Email"
+                  width="16"
+                  height="16"
+                />
+                <a href="mailto:congdinh2021@gmail.com"
+                  >congdinh2021@gmail.com</a
+                >
+              </li>
+              <li>
+                <img
+                  src="assets/icons/phone-icon.png"
+                  alt="Phone"
+                  width="16"
+                  height="16"
+                />
+                <a href="tel:+84944551356">+84 944 551 356</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/location-icon.png"
+                  alt="Location"
+                  width="16"
+                  height="16"
+                />
+                <a href="#">123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; May 2024 - ReactJS 19</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/take-quiz.js"></script>
+  </body>
+</html>
