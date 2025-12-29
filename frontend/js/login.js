@@ -16,13 +16,6 @@ function goHome() {
   globalThis.location.href = "/";
 }
 
-document
-  .querySelector(".forgot-password")
-  .addEventListener("click", function (e) {
-    e.preventDefault();
-    alert("Chức năng quên mật khẩu đang được phát triển!");
-  });
-
 const inputs = document.querySelectorAll("input");
 inputs.forEach((input) => {
   input.addEventListener("focus", function () {

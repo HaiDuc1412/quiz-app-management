@@ -78,12 +78,12 @@ h1 {
 }
 
 .btn-primary {
-  background: #56ccf2;
-  color: white;
+  background: #3bb9e8;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background: #3bb9e8;
+  background: #197e9fff;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(86, 204, 242, 0.4);
 }

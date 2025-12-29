@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzes - Welcome to Quiz App</title>
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img
+                  src="assets/images/logo.png"
+                  alt="logo"
+                  width="50"
+                  height="39"
+                />
+            <span>Quizzes</span>
+          </div>
+          <nav class="nav">
+            <a href="home.html" class="active">Home</a>
+            <a href="#quizzes">Quizzes</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div class="auth-links">
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Welcome to Quiz App</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              malesuada, nunc non lacinia fermentum, neque ultrices sapien, nec
+              tincidunt nunc nunc nec libero. Nullam non sollicitudin nunc.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="window.location.href='#quizzes'"
+            >
+              Take a Quiz
+            </button>
+          </div>
+          <div class="hero-image">
+            <img src="assets/images/quiz-bg-01.png" alt="Quiz Illustration" class="quiz-illustration-img">
+          </div>
+      </div>
+    </section>
+
+    <!-- Quizzes Section -->
+    <section class="quizzes" id="quizzes">
+      <div class="container">
+        <h2>QUIZZES</h2>
+        <div class="quiz-grid">
+          <!-- Quiz Card 1 -->
+          <div class="quiz-card">
+            <div class="quiz-image">
+              <img src="assets/images/world-map-1.png" alt="World Map" />
+            </div>
+            <div class="quiz-content">
+              <div class="quiz-header">
+                <h3>Capitals of Country</h3>
+                <span class="quiz-time">15m</span>
+              </div>
+              <p>Test your knowledge of country capitals</p>
+              <button class="btn btn-start" onclick="startQuiz(1)">
+                Start
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Card 2 -->
+          <div class="quiz-card">
+            <div class="quiz-image">
+              <img src="assets/images/quiz-icons.png" alt="Quiz Icons" />
+            </div>
+            <div class="quiz-content">
+              <div class="quiz-header">
+                <h3>Capitals of Country</h3>
+                <span class="quiz-time">15m</span>
+              </div>
+              <p>Test your knowledge of country capitals</p>
+              <button class="btn btn-start" onclick="startQuiz(2)">
+                Start
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Card 3 -->
+          <div class="quiz-card">
+            <div class="quiz-image">
+              <img src="assets/images/world-map-2.png" alt="World Map" />
+            </div>
+            <div class="quiz-content">
+              <div class="quiz-header">
+                <h3>Capitals of Country</h3>
+                <span class="quiz-time">15m</span>
+              </div>
+              <p>Test your knowledge of country capitals</p>
+              <button class="btn btn-start" onclick="startQuiz(3)">
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="logo">
+               <img
+                  src="assets/images/logo.png"
+                  alt="logo"
+                  width="50"
+                  height="39"
+                />
+            <span>Quizzes</span>
+              <span>Quizzes</span>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="#quizzes">Quizzes</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul class="contact-info">
+              <li>
+                <img
+                  src="assets/icons/email-icon.png"
+                  alt="Email"
+                  width="16"
+                  height="16"
+                />
+                <a href="mailto:bcnguyen2021@gmail.com">bcnguyen2021@gmail.com</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/phone-icon.png"
+                  alt="Phone"
+                  width="16"
+                  height="16"
+                />
+                <a href="tel:+84944551496">+84 944 551 496</a>
+              </li>
+              <li>
+                <img
+                  src="assets/icons/location-icon.png"
+                  alt="Location"
+                  width="16"
+                  height="16"
+                />
+                <a href="#">123 Xuan Dieu, Bac Tu Liem, Ha Noi, Viet Nam</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; May 2024 - ReactJS 19</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

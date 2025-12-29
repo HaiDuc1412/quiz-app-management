@@ -1,4 +1,3 @@
-// Hàm quay về trang chủ
 function goHome() {
   window.location.href = "/";
 }
