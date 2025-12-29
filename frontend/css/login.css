@@ -1,210 +1,211 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('../assets/images/question-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("../assets/images/question-bg.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(86, 204, 242, 0.05);
-    z-index: 0;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(86, 204, 242, 0.05);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .container {
-    width: 100%;
-    max-width: 1400px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative;
-    padding-top: 72px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 72px;
 }
 
 .login-card {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 623px;
-    position: relative;
-    z-index: 1;
-    padding: 40px 30px;
-    transform: translateX(-120px);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 623px;
+  position: relative;
+  z-index: 1;
+  padding: 40px 30px;
+  transform: translateX(-120px);
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    font-size: 32px;
-     margin-bottom: 28px;
-    font-weight: 600;
+  text-align: center;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 28px;
+  font-weight: 600;
 }
 
 .form-group {
-     margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 label {
-    display: block;
-    color: #333;
-    font-size: 14px;
-    margin-bottom: 8px;
-    font-weight: 500;
+  display: block;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    color: #333;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  color: #333;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    outline: none;
-    border-color: #2F80ED;
-    box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.1);
+  outline: none;
+  border-color: #2f80ed;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.1);
 }
 
 input::placeholder {
-    color: #999;
+  color: #999;
 }
 
 .button-group {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .btn {
-    flex: 1;
-    padding: 14px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-secondary {
-    background: #f5f5f5;
-    color: #333;
+  background: #f5f5f5;
+  color: #333;
 }
 
 .btn-secondary:hover {
-    background: #e8e8e8;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #e8e8e8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-    background: rgba(56, 182, 255, 1);
-    color: white;
+  background: rgba(56, 182, 255, 1);
+  color: white;
 }
 
 .btn-primary:hover {
-    background: #2666C5;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(47, 128, 237, 0.3);
+  background: #2666c5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(47, 128, 237, 0.3);
 }
 
 .btn:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .links {
-    margin-top: 25px;
-    text-align: center;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .forgot-password {
-    display: block;
-    color: #666;
-    font-size: 14px;
-    text-decoration: none;
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
+  display: block;
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
 }
 
 .forgot-password:hover {
-    color: #2F80ED;
+  color: #2f80ed;
 }
 
 .register-link {
-    color: #666;
-    font-size: 14px;
+  color: #666;
+  font-size: 14px;
 }
 
 .register-link a {
-    color: #2F80ED;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+  color: #2f80ed;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .register-link a:hover {
-    color: #2666C5;
-    text-decoration: underline;
+  color: #2666c5;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-    .question-mark {
-        font-size: 250px;
-        right: -50px;
-    }
-    
-    .login-card {
-        padding: 40px 30px;
-        max-width: 400px;
-        transform: none;
-    }
-    
-    h1 {
-        font-size: 28px;
-    }
-    
-    .button-group {
-        flex-direction: column;
-    }
+  .question-mark {
+    font-size: 250px;
+    right: -50px;
+  }
+
+  .login-card {
+    padding: 40px 30px;
+    max-width: 400px;
+    transform: none;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {
-    .question-mark {
-        font-size: 180px;
-        opacity: 0.5;
-    }
-    
-    .login-card {
-        padding: 30px 20px;
-    }
-    
-    h1 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
+  .question-mark {
+    font-size: 180px;
+    opacity: 0.5;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
 }
