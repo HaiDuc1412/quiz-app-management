@@ -26,13 +26,6 @@ document.querySelector('.forgot-password').addEventListener('click', function (e
 
 });
 
-
-document.querySelector('.register-link a').addEventListener('click', function (e) {
-    e.preventDefault();
-    alert('Chuyển đến trang đăng ký!');
-
-});
-
 const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
     input.addEventListener('focus', function () {

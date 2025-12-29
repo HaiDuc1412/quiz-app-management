@@ -123,7 +123,7 @@ input::placeholder {
 }
 
 .btn-primary {
-    background: #1a5bb8;
+    background: rgba(56, 182, 255, 1);
     color: white;
 }
 
@@ -172,7 +172,6 @@ input::placeholder {
     text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .question-mark {
         font-size: 250px;
