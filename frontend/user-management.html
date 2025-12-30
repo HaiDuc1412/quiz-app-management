@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management - Quizzes</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/user-management.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search Section -->
+      <div class="search-section">
+        <h2>User Management</h2>
+        <div class="search-fields">
+          <div class="field-group">
+            <label for="searchName">Name</label>
+            <input
+              type="text"
+              id="searchName"
+              placeholder="Enter username to search"
+            />
+          </div>
+          <div class="field-group">
+            <label for="searchStatus">Status</label>
+            <div class="checkbox-field">
+              <input type="checkbox" id="searchStatus" />
+              <label for="searchStatus">Active</label>
+            </div>
+          </div>
+        </div>
+        <div class="search-actions">
+          <button class="btn-create" id="btnCreate">
+            <img
+              src="assets/icons/create-icon.png"
+              alt="Create"
+              class="btn-icon"
+            />
+            Create
+          </button>
+          <div style="display: flex; gap: 1rem">
+            <button class="btn-clear" id="btnClear">
+              <img
+                src="assets/icons/clear-icon.png"
+                alt="Clear"
+                class="btn-icon"
+              />
+              Clear
+            </button>
+            <button class="btn-search" id="btnSearch">
+              <img
+                src="assets/icons/search-icon.png"
+                alt="Search"
+                class="btn-icon"
+              />
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- User List Table -->
+      <div class="user-list-section">
+        <h2>User List</h2>
+        <div class="table-container">
+          <table class="user-table" id="userTable">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>User Name</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Admin</td>
+                <td>User</td>
+                <td>admin@domain.com</td>
+                <td>admin</td>
+                <td>+84987654321</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Editor</td>
+                <td>User</td>
+                <td>editor@domain.com</td>
+                <td>editor</td>
+                <td>+84987654321</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Cong</td>
+                <td>Dinh</td>
+                <td>congdinh@domain.com</td>
+                <td>congdinh</td>
+                <td>+84987654321</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Van</td>
+                <td>Nguyen</td>
+                <td>vannguyen@domain.com</td>
+                <td>vannguyen</td>
+                <td>+84987654321</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="items-per-page">
+            <span>Items per page:</span>
+            <select id="itemsPerPage">
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+          <div class="pagination">
+            <button class="page-btn" id="firstPage">
+              <img
+                src="assets/icons/less2-icon.png"
+                alt="First"
+                class="btn-icon"
+              />
+            </button>
+            <button class="page-btn" id="prevPage">
+              <img
+                src="assets/icons/less-icon.png"
+                alt="Previous"
+                class="btn-icon"
+              />
+            </button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn" id="nextPage">
+              <img
+                src="assets/icons/greater-icon.png"
+                alt="Next"
+                class="btn-icon"
+              />
+            </button>
+            <button class="page-btn" id="lastPage">
+              <img
+                src="assets/icons/greater2-icon.png"
+                alt="Last"
+                class="btn-icon"
+              />
+            </button>
+          </div>
+          <div class="page-info">
+            <span>1-10 of 32</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add User Form -->
+      <div class="add-user-section" id="addUserSection">
+        <h2>Add User</h2>
+        <form id="userForm" class="user-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="username">User Name</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter your user name"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input
+                type="date"
+                id="dateOfBirth"
+                placeholder="Enter your date of birth"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                placeholder="Enter your phone number"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="userStatus">Status</label>
+              <div class="checkbox-field">
+                <input type="checkbox" id="userStatus" checked />
+                <label for="userStatus">Active</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="btnCancel">
+              <img
+                src="assets/icons/clear-icon.png"
+                alt="Cancel"
+                class="btn-icon"
+              />
+              Cancel
+            </button>
+            <button type="submit" class="btn-save">
+              <img
+                src="assets/icons/save-icon.png"
+                alt="Save"
+                class="btn-icon"
+              />
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img
+              src="assets/images/logo.png"
+              alt="logo"
+              width="50"
+              height="39"
+            />
+            <span class="footer-logo-text">Quizzes</span>
+          </div>
+          <p class="footer-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Menu</h3>
+          <ul class="footer-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="take-quiz.html">Quizzes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul class="footer-contact">
+            <li>
+              <a href="mailto:ncaughien2021@gmail.com">
+                <img
+                  src="assets/icons/email-icon.png"
+                  alt="Email"
+                  class="footer-icon"
+                />
+                ncaughien2021@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+84944551358">
+                <img
+                  src="assets/icons/phone-icon.png"
+                  alt="Phone"
+                  class="footer-icon"
+                />
+                +84 944 551 358
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  src="assets/icons/location-icon.png"
+                  alt="Location"
+                  class="footer-icon"
+                />
+                123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© May 2024 - ReactJS 19</p>
+      </div>
+    </footer>
+
+    <script src="js/load-components.js"></script>
+    <script src="js/user-management.js"></script>
+  </body>
+</html>

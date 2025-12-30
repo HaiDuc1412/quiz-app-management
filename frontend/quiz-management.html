@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Management - Quizzes</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/quiz-management.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Search Section -->
+      <div class="search-section">
+        <h2>Quiz Management</h2>
+        <div class="search-fields">
+          <div class="field-group">
+            <label for="searchName">Name</label>
+            <input
+              type="text"
+              id="searchName"
+              placeholder="Enter quiz name to search"
+            />
+          </div>
+          <div class="field-group">
+            <label for="searchStatus">Status</label>
+            <div class="checkbox-field">
+              <input type="checkbox" id="searchStatus" />
+              <label for="searchStatus">Active</label>
+            </div>
+          </div>
+        </div>
+        <div class="search-actions">
+          <button class="btn-create" id="btnCreate">
+            <img
+              src="assets/icons/create-icon.png"
+              alt="Create"
+              class="btn-icon"
+            />
+            Create
+          </button>
+          <div style="display: flex; gap: 1rem">
+            <button class="btn-clear" id="btnClear">
+              <img
+                src="assets/icons/clear-icon.png"
+                alt="Clear"
+                class="btn-icon"
+              />
+              Clear
+            </button>
+            <button class="btn-search" id="btnSearch">
+              <img
+                src="assets/icons/search-icon.png"
+                alt="Search"
+                class="btn-icon"
+              />
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz List Table -->
+      <div class="quiz-list-section">
+        <h2>Quiz List</h2>
+        <div class="table-container">
+          <table class="quiz-table" id="quizTable">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Description</th>
+                <th>Description</th>
+                <th>Description</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img
+                    src="assets/images/world-map-1.png"
+                    alt="Quiz"
+                    class="quiz-thumbnail"
+                  />
+                </td>
+                <td>Capitals of Country</td>
+                <td>Test your knowledge of country capitals</td>
+                <td>15m</td>
+                <td>7</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="assets/images/quiz-icons.png"
+                    alt="Quiz"
+                    class="quiz-thumbnail"
+                  />
+                </td>
+                <td>Inventions and Inventors</td>
+                <td>Test your knowledge of inventors and their inventions</td>
+                <td>20m</td>
+                <td>10</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="assets/images/world-map-2.png"
+                    alt="Quiz"
+                    class="quiz-thumbnail"
+                  />
+                </td>
+                <td>Countries of the World</td>
+                <td>Test your knowledge of countries</td>
+                <td>15m</td>
+                <td>10</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="items-per-page">
+            <span>Items per page:</span>
+            <select id="itemsPerPage">
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+          <div class="pagination">
+            <button class="page-btn" id="firstPage">
+              <img
+                src="assets/icons/less2-icon.png"
+                alt="First"
+                class="btn-icon"
+              />
+            </button>
+            <button class="page-btn" id="prevPage">
+              <img
+                src="assets/icons/less-icon.png"
+                alt="Previous"
+                class="btn-icon"
+              />
+            </button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn" id="nextPage">
+              <img
+                src="assets/icons/greater-icon.png"
+                alt="Next"
+                class="btn-icon"
+              />
+            </button>
+            <button class="page-btn" id="lastPage">
+              <img
+                src="assets/icons/greater2-icon.png"
+                alt="Last"
+                class="btn-icon"
+              />
+            </button>
+          </div>
+          <div class="page-info">
+            <span>1-10 of 32</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Quiz Form -->
+      <div class="add-quiz-section" id="addQuizSection">
+        <h2>Add Quiz</h2>
+        <form id="quizForm" class="quiz-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quizTitle">Title</label>
+              <input
+                type="text"
+                id="quizTitle"
+                placeholder="Enter quiz title"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="quizDetail">InDetail/HTML</label>
+              <input
+                type="text"
+                id="quizDetail"
+                placeholder="Enter quiz detail"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quizNumber">Number</label>
+              <input
+                type="text"
+                id="quizNumber"
+                placeholder="Enter quiz duration"
+              />
+            </div>
+            <div class="form-group">
+              <label for="thumbnailUrl">Thumbnail URL</label>
+              <input
+                type="text"
+                id="thumbnailUrl"
+                placeholder="Enter quiz thumbnail URL"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quizStatus">Status</label>
+              <div class="checkbox-field">
+                <input type="checkbox" id="quizStatus" checked />
+                <label for="quizStatus">Active</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="btnCancelQuiz">
+              <img
+                src="assets/icons/clear-icon.png"
+                alt="Cancel"
+                class="btn-icon"
+              />
+              Cancel
+            </button>
+            <button type="submit" class="btn-save">
+              <img
+                src="assets/icons/save-icon.png"
+                alt="Save"
+                class="btn-icon"
+              />
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Question List Section -->
+      <div class="question-list-section" id="questionListSection">
+        <h2>Question List</h2>
+        <div class="table-container">
+          <table class="question-table" id="questionTable">
+            <thead>
+              <tr>
+                <th>Content</th>
+                <th>Type</th>
+                <th>Answers</th>
+                <th>Order</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Who is the founder of the airplane?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>1</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Who is the founder of the wheel clock face?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>2</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Where is Viet Nam?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>3</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>What is the capital of England?</td>
+                <td>True/False</td>
+                <td>4</td>
+                <td>4</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Who is the founder of the alternating current?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>5</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Where is Australia?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>6</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Who is the founder of the A-10?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>7</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Where is Taiwan?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>8</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Where is the United States?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>9</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Who is the founder of the washing machine?</td>
+                <td>Multiple Choice</td>
+                <td>4</td>
+                <td>10</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="add-question-actions">
+          <button class="btn-add-question" id="btnAddQuestion">
+            <img
+              src="assets/icons/create-icon.png"
+              alt="Add"
+              class="btn-icon"
+            />
+            Add
+          </button>
+          <button class="btn-save-questions" id="btnSaveQuestions">
+            <img
+              src="assets/icons/save-icon.png"
+              alt="Save"
+              class="btn-icon"
+            />
+            Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Add Question Form -->
+      <div class="add-question-section" id="addQuestionSection">
+        <h2>Add Quiz</h2>
+        <form id="questionForm" class="question-form">
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="questionType">Question</label>
+              <select id="questionType" required>
+                <option value="">Select Question Type</option>
+                <option value="multiple-choice">Multiple Choice</option>
+                <option value="true-false">True/False</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="questionOrder">Order</label>
+              <input
+                type="text"
+                id="questionOrder"
+                placeholder="Order of question in quiz"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancel-question" id="btnCancelQuestion">
+              <img
+                src="assets/icons/clear-icon.png"
+                alt="Cancel"
+                class="btn-icon"
+              />
+              Cancel
+            </button>
+            <button type="submit" class="btn-add">
+              <img
+                src="assets/icons/create-icon.png"
+                alt="Add"
+                class="btn-icon"
+              />
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img
+              src="assets/images/logo.png"
+              alt="logo"
+              width="50"
+              height="39"
+            />
+            <span class="footer-logo-text">Quizzes</span>
+          </div>
+          <p class="footer-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Menu</h3>
+          <ul class="footer-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="take-quiz.html">Quizzes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul class="footer-contact">
+            <li>
+              <a href="mailto:ncaughien2021@gmail.com">
+                <img
+                  src="assets/icons/email-icon.png"
+                  alt="Email"
+                  class="footer-icon"
+                />
+                ncaughien2021@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+84944551358">
+                <img
+                  src="assets/icons/phone-icon.png"
+                  alt="Phone"
+                  class="footer-icon"
+                />
+                +84 944 551 358
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  src="assets/icons/location-icon.png"
+                  alt="Location"
+                  class="footer-icon"
+                />
+                123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© May 2024 - ReactJS 19</p>
+      </div>
+    </footer>
+
+    <script src="js/load-components.js"></script>
+    <script src="js/quiz-management.js"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="logo" width="50" height="39">
+                    <span>Quizzes</span>
+                </div>
+                <nav class="nav">
+                    <a href="home.html">Home</a>
+                    <a href="take-quiz.html">Quizzes</a>
+                    <a href="#management">Management</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="active">Contact</a>
+                </nav>
+                <div class="user-avatar">
+                    <img src="assets/images/avatar.png" alt="User Avatar" width="40" height="40">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h1>CONTACT</h1>
+            <div class="contact-content">
+                <!-- Feedback Form -->
+                <div class="feedback-form">
+                    <h2>Feedback</h2>
+                    <p class="form-description">
+                        Please fill out the form below to send us your feedback. We will get back to you as soon as possible.
+                    </p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <h2>Our Information</h2>
+                    <p class="info-description">
+                        We are always here to help you. You can contact us through the following ways.
+                    </p>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <img src="assets/icons/email-icon.png" alt="Email" width="20" height="20">
+                            <a href="mailto:congdinh2021@gmail.com">congdinh2021@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="assets/icons/phone-icon.png" alt="Phone" width="20" height="20">
+                            <a href="tel:+84944551356">+84 944 551 356</a>
+                        </li>
+                        <li>
+                            <img src="assets/icons/location-icon.png" alt="Location" width="20" height="20">
+                            <a href="#">123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="social-media">
+                        <a href="#" class="social-icon tiktok" aria-label="TikTok">
+                            <img src="assets/icons/tiktok-icon.png" alt="TikTok" width="20" height="20">
+                        </a>
+                        <a href="#" class="social-icon facebook" aria-label="Facebook">
+                            <img src="assets/icons/facebook-icon.png" alt="Facebook" width="20" height="20">
+                        </a>
+                        <a href="#" class="social-icon youtube" aria-label="YouTube">
+                            <img src="assets/icons/youtube-icon.png" alt="YouTube" width="20" height="20">
+                        </a>
+                        <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                            <img src="assets/icons/linkedin-icon.png" alt="LinkedIn" width="20" height="20">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="assets/images/logo.png" alt="logo" width="50" height="39">
+                        <span>Quizzes</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="take-quiz.html">Quizzes</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <img src="assets/icons/email-icon.png" alt="Email" width="16" height="16">
+                            <a href="mailto:congdinh2021@gmail.com">congdinh2021@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="assets/icons/phone-icon.png" alt="Phone" width="16" height="16">
+                            <a href="tel:+84944551356">+84 944 551 356</a>
+                        </li>
+                        <li>
+                            <img src="assets/icons/location-icon.png" alt="Location" width="16" height="16">
+                            <a href="#">123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; May 2024 - ReactJS 19</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/contact.js"></script>
+</body>
+</html>

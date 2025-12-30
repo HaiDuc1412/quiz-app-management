@@ -1,0 +1,164 @@
+/* Quiz Management Specific Styles */
+
+/* Quiz List Section */
+.quiz-list-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.quiz-list-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.quiz-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.quiz-table thead {
+  background-color: #f8f9fa;
+}
+
+.quiz-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.quiz-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.quiz-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.quiz-thumbnail {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Add Quiz Section */
+.add-quiz-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.add-quiz-section.active {
+  display: block;
+}
+
+.add-quiz-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.quiz-form {
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
+
+/* Question List Section */
+.question-list-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.question-list-section.active {
+  display: block;
+}
+
+.question-list-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.question-table thead {
+  background-color: #f8f9fa;
+}
+
+.question-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.question-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.question-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.add-question-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Add Question Section */
+.add-question-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.add-question-section.active {
+  display: block;
+}
+
+.add-question-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.question-form {
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
