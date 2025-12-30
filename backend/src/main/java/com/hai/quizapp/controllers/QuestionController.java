@@ -114,17 +114,4 @@ public class QuestionController {
         questionService.softDeleteQuestion(id);
         return ResponseEntity.noContent().build();
     }
-
-    @Operation(summary = "Hard delete question", description = "Permanently deletes a question from the database")
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Question permanently deleted"),
-        @ApiResponse(responseCode = "404", description = "Question not found")
-    })
-    @DeleteMapping("/{id}/hard")
-    public ResponseEntity<Void> hardDeleteQuestion(
-            @Parameter(description = "Question ID")
-            @PathVariable UUID id) {
-        questionService.deleteQuestion(id);
-        return ResponseEntity.noContent().build();
-    }
 }

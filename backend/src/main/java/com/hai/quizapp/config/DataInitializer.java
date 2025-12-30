@@ -1,15 +1,24 @@
 package com.hai.quizapp.config;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.hai.quizapp.constants.Constants;
 import com.hai.quizapp.entities.Answer;
 import com.hai.quizapp.entities.Question;
+import com.hai.quizapp.entities.Quiz;
+import com.hai.quizapp.entities.Role;
+import com.hai.quizapp.entities.User;
 import com.hai.quizapp.enums.QuestionType;
 import com.hai.quizapp.repositories.QuestionRepository;
+import com.hai.quizapp.repositories.QuizRepository;
+import com.hai.quizapp.repositories.RoleRepository;
+import com.hai.quizapp.repositories.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,12 +33,77 @@ import lombok.extern.slf4j.Slf4j;
 public class DataInitializer {
 
     private final QuestionRepository questionRepository;
+    private final QuizRepository quizRepository;
+    private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Bean
     CommandLineRunner initDatabase() {
         return args -> {
+            initRoles();
+            initSampleUsers();
             initSampleQuestions();
+            initSampleQuizzes();
         };
+    }
+
+    /**
+     * Initialize default roles
+     */
+    private void initRoles() {
+        if (!roleRepository.existsByName(Constants.ROLE_ADMIN)) {
+            Role adminRole = new Role();
+            adminRole.setName(Constants.ROLE_ADMIN);
+            adminRole.setDescription("Administrator with full access");
+            roleRepository.save(adminRole);
+            log.info("Created default role: {}", Constants.ROLE_ADMIN);
+        }
+
+        if (!roleRepository.existsByName(Constants.ROLE_USER)) {
+            Role userRole = new Role();
+            userRole.setName(Constants.ROLE_USER);
+            userRole.setDescription("Regular user who can take quizzes");
+            roleRepository.save(userRole);
+            log.info("Created default role: {}", Constants.ROLE_USER);
+        }
+    }
+
+    /**
+     * Initialize sample users
+     */
+    private void initSampleUsers() {
+        if (userRepository.count() > 0) {
+            log.info("Database already contains users. Skipping user initialization.");
+            return;
+        }
+
+        Role adminRole = roleRepository.findByName(Constants.ROLE_ADMIN)
+                .orElseThrow(() -> new RuntimeException("Admin role not found"));
+        Role userRole = roleRepository.findByName(Constants.ROLE_USER)
+                .orElseThrow(() -> new RuntimeException("User role not found"));
+
+        // Create admin user
+        User admin = User.builder()
+                .email("admin@quizapp.com")
+                .password(passwordEncoder.encode("Admin@123"))
+                .fullName("Admin User")
+                .active(true)
+                .roles(Set.of(adminRole))
+                .build();
+        userRepository.save(admin);
+        log.info("Created admin user: admin@quizapp.com / Admin@123");
+
+        // Create regular user
+        User user = User.builder()
+                .email("user@quizapp.com")
+                .password(passwordEncoder.encode("User@123"))
+                .fullName("Regular User")
+                .active(true)
+                .roles(Set.of(userRole))
+                .build();
+        userRepository.save(user);
+        log.info("Created regular user: user@quizapp.com / User@123");
     }
 
     /**
@@ -192,5 +266,46 @@ public class DataInitializer {
 
         log.info("Initialized 5 sample questions with answers");
         log.info("Sample data created successfully!");
+    }
+
+    /**
+     * Initialize sample quizzes
+     */
+    private void initSampleQuizzes() {
+        if (quizRepository.count() > 0) {
+            log.info("Database already contains quizzes. Skipping quiz initialization.");
+            return;
+        }
+
+        List<Question> allQuestions = questionRepository.findAll();
+
+        if (allQuestions.isEmpty()) {
+            log.warn("No questions available to create quizzes.");
+            return;
+        }
+
+        // Create Java Basics Quiz
+        Quiz javaQuiz = Quiz.builder()
+                .title("Java Programming Basics")
+                .description("Test your knowledge of Java fundamentals")
+                .durationMinutes(30)
+                .active(true)
+                .questions(Set.copyOf(allQuestions.subList(0, Math.min(3, allQuestions.size()))))
+                .build();
+        quizRepository.save(javaQuiz);
+        log.info("Created sample quiz: Java Programming Basics");
+
+        // Create General Knowledge Quiz
+        if (allQuestions.size() > 3) {
+            Quiz generalQuiz = Quiz.builder()
+                    .title("General Knowledge Quiz")
+                    .description("Mixed questions to test your general knowledge")
+                    .durationMinutes(20)
+                    .active(true)
+                    .questions(Set.copyOf(allQuestions.subList(3, Math.min(5, allQuestions.size()))))
+                    .build();
+            quizRepository.save(generalQuiz);
+            log.info("Created sample quiz: General Knowledge Quiz");
+        }
     }
 }

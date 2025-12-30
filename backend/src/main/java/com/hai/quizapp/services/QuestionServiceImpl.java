@@ -88,14 +88,6 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void deleteQuestion(UUID id) {
-        Question question = questionRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(QUESTION_NOT_FOUND + id));
-
-        questionRepository.delete(question);
-    }
-
-    @Override
     public void softDeleteQuestion(UUID id) {
         Question question = questionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(QUESTION_NOT_FOUND + id));

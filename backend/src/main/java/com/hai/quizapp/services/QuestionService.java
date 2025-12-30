@@ -18,7 +18,5 @@ public interface QuestionService {
 
     QuestionResponse updateQuestion(UUID id, QuestionRequest request);
 
-    void deleteQuestion(UUID id);
-
     void softDeleteQuestion(UUID id);
 }
