@@ -21,6 +21,15 @@ public interface QuizRepository extends JpaRepository<Quiz, UUID> {
     @EntityGraph(attributePaths = {"questions"})
     Page<Quiz> findByActiveTrue(Pageable pageable);
 
+    @EntityGraph(attributePaths = {"questions"})
+    Page<Quiz> findByTitleContainingIgnoreCaseAndActive(String title, Boolean active, Pageable pageable);
+
+    @EntityGraph(attributePaths = {"questions"})
+    Page<Quiz> findByTitleContainingIgnoreCase(String title, Pageable pageable);
+
+    @EntityGraph(attributePaths = {"questions"})
+    Page<Quiz> findByActive(Boolean active, Pageable pageable);
+
     @Override
     Page<Quiz> findAll(Pageable pageable);
 }

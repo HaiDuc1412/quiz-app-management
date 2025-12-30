@@ -4,8 +4,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
-import com.hai.quizapp.dtos.UserRequest;
-import com.hai.quizapp.dtos.UserResponse;
+import com.hai.quizapp.dtos.users.UserRequest;
+import com.hai.quizapp.dtos.users.UserResponse;
 import com.hai.quizapp.entities.User;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {RoleMapper.class})

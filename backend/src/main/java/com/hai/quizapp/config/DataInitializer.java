@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.hai.quizapp.constants.Constants;
 import com.hai.quizapp.entities.Answer;
 import com.hai.quizapp.entities.Question;
 import com.hai.quizapp.entities.Quiz;
 import com.hai.quizapp.entities.Role;
 import com.hai.quizapp.entities.User;
 import com.hai.quizapp.enums.QuestionType;
+import com.hai.quizapp.enums.RoleEnum;
 import com.hai.quizapp.repositories.QuestionRepository;
 import com.hai.quizapp.repositories.QuizRepository;
 import com.hai.quizapp.repositories.RoleRepository;
@@ -52,20 +52,20 @@ public class DataInitializer {
      * Initialize default roles
      */
     private void initRoles() {
-        if (!roleRepository.existsByName(Constants.ROLE_ADMIN)) {
+        if (!roleRepository.existsByName(RoleEnum.ROLE_ADMIN)) {
             Role adminRole = new Role();
-            adminRole.setName(Constants.ROLE_ADMIN);
+            adminRole.setName(RoleEnum.ROLE_ADMIN);
             adminRole.setDescription("Administrator with full access");
             roleRepository.save(adminRole);
-            log.info("Created default role: {}", Constants.ROLE_ADMIN);
+            log.info("Created default role: {}", RoleEnum.ROLE_ADMIN);
         }
 
-        if (!roleRepository.existsByName(Constants.ROLE_USER)) {
+        if (!roleRepository.existsByName(RoleEnum.ROLE_USER)) {
             Role userRole = new Role();
-            userRole.setName(Constants.ROLE_USER);
+            userRole.setName(RoleEnum.ROLE_USER);
             userRole.setDescription("Regular user who can take quizzes");
             roleRepository.save(userRole);
-            log.info("Created default role: {}", Constants.ROLE_USER);
+            log.info("Created default role: {}", RoleEnum.ROLE_USER);
         }
     }
 
@@ -78,9 +78,9 @@ public class DataInitializer {
             return;
         }
 
-        Role adminRole = roleRepository.findByName(Constants.ROLE_ADMIN)
+        Role adminRole = roleRepository.findByName(RoleEnum.ROLE_ADMIN)
                 .orElseThrow(() -> new RuntimeException("Admin role not found"));
-        Role userRole = roleRepository.findByName(Constants.ROLE_USER)
+        Role userRole = roleRepository.findByName(RoleEnum.ROLE_USER)
                 .orElseThrow(() -> new RuntimeException("User role not found"));
 
         // Create admin user

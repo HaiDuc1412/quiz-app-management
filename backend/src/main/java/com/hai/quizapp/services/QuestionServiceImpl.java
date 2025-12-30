@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hai.quizapp.dtos.QuestionRequest;
-import com.hai.quizapp.dtos.QuestionResponse;
+import com.hai.quizapp.dtos.questions.QuestionRequest;
+import com.hai.quizapp.dtos.questions.QuestionResponse;
 import com.hai.quizapp.entities.Answer;
 import com.hai.quizapp.entities.Question;
 import com.hai.quizapp.exceptions.ResourceNotFoundException;

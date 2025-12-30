@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hai.quizapp.dtos.ApiResponse;
-import com.hai.quizapp.dtos.ExamResultResponse;
-import com.hai.quizapp.dtos.ExamSubmitRequest;
+import com.hai.quizapp.dtos.submissions.ExamResultResponse;
+import com.hai.quizapp.dtos.submissions.ExamSubmitRequest;
 import com.hai.quizapp.services.ExamService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/v1/exam")
 @RequiredArgsConstructor
 @Validated
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "Exam Management", description = "APIs for taking and submitting exams")
 public class ExamController {
 

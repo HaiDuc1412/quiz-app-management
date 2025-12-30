@@ -9,8 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hai.quizapp.dtos.QuizRequest;
-import com.hai.quizapp.dtos.QuizResponse;
+import com.hai.quizapp.dtos.quizzes.QuizRequest;
+import com.hai.quizapp.dtos.quizzes.QuizResponse;
 import com.hai.quizapp.entities.Question;
 import com.hai.quizapp.entities.Quiz;
 import com.hai.quizapp.exceptions.ResourceNotFoundException;
@@ -53,6 +53,28 @@ public class QuizServiceImpl implements QuizService {
     public Page<QuizResponse> getAllQuizzes(Pageable pageable) {
         return quizRepository.findByActiveTrue(pageable)
                 .map(quizMapper::toResponse);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<QuizResponse> searchQuizzes(String title, Boolean active, Pageable pageable) {
+        Page<Quiz> quizPage;
+
+        if (title != null && !title.trim().isEmpty() && active != null) {
+            // Search by both title and active status
+            quizPage = quizRepository.findByTitleContainingIgnoreCaseAndActive(title.trim(), active, pageable);
+        } else if (title != null && !title.trim().isEmpty()) {
+            // Search by title only
+            quizPage = quizRepository.findByTitleContainingIgnoreCase(title.trim(), pageable);
+        } else if (active != null) {
+            // Filter by active status only
+            quizPage = quizRepository.findByActive(active, pageable);
+        } else {
+            // No filters, return all
+            quizPage = quizRepository.findAll(pageable);
+        }
+
+        return quizPage.map(quizMapper::toResponse);
     }
 
     @Override

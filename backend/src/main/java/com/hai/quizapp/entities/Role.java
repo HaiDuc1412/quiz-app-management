@@ -2,13 +2,17 @@ package com.hai.quizapp.entities;
 
 import java.util.UUID;
 
+import com.hai.quizapp.enums.RoleEnum;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,9 +32,10 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank
+    @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
-    private String name;
+    private RoleEnum name;
 
     @Column(length = 255)
     private String description;

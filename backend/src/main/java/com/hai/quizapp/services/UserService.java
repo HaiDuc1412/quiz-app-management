@@ -5,8 +5,8 @@ import java.util.UUID;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.hai.quizapp.dtos.UserRequest;
-import com.hai.quizapp.dtos.UserResponse;
+import com.hai.quizapp.dtos.users.UserRequest;
+import com.hai.quizapp.dtos.users.UserResponse;
 
 public interface UserService {
 

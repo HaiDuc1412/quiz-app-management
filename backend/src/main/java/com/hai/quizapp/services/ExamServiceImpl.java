@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hai.quizapp.dtos.ExamResultResponse;
-import com.hai.quizapp.dtos.ExamSubmitRequest;
+import com.hai.quizapp.dtos.submissions.ExamResultResponse;
+import com.hai.quizapp.dtos.submissions.ExamSubmitRequest;
 import com.hai.quizapp.entities.Answer;
 import com.hai.quizapp.entities.Question;
 import com.hai.quizapp.entities.Quiz;

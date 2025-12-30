@@ -1,7 +1,7 @@
 package com.hai.quizapp.services;
 
-import com.hai.quizapp.dtos.ExamResultResponse;
-import com.hai.quizapp.dtos.ExamSubmitRequest;
+import com.hai.quizapp.dtos.submissions.ExamResultResponse;
+import com.hai.quizapp.dtos.submissions.ExamSubmitRequest;
 
 public interface ExamService {
 

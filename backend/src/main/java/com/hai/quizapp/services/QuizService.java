@@ -6,14 +6,16 @@ import java.util.UUID;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.hai.quizapp.dtos.QuizRequest;
-import com.hai.quizapp.dtos.QuizResponse;
+import com.hai.quizapp.dtos.quizzes.QuizRequest;
+import com.hai.quizapp.dtos.quizzes.QuizResponse;
 
 public interface QuizService {
 
     QuizResponse createQuiz(QuizRequest request);
 
     Page<QuizResponse> getAllQuizzes(Pageable pageable);
+
+    Page<QuizResponse> searchQuizzes(String title, Boolean active, Pageable pageable);
 
     QuizResponse getQuizById(UUID id);
 

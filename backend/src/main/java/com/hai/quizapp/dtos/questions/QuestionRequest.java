@@ -1,7 +1,8 @@
-package com.hai.quizapp.dtos;
+package com.hai.quizapp.dtos.questions;
 
 import java.util.List;
 
+import com.hai.quizapp.dtos.answer.AnswerRequest;
 import com.hai.quizapp.enums.QuestionType;
 
 import jakarta.validation.Valid;

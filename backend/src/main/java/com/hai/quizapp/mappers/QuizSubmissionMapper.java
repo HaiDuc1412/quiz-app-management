@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
-import com.hai.quizapp.dtos.QuizSubmissionResponse;
+import com.hai.quizapp.dtos.quizzes.QuizSubmissionResponse;
 import com.hai.quizapp.entities.QuizSubmission;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)

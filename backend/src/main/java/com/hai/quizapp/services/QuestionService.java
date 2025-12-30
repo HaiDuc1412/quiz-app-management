@@ -5,8 +5,8 @@ import java.util.UUID;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.hai.quizapp.dtos.QuestionRequest;
-import com.hai.quizapp.dtos.QuestionResponse;
+import com.hai.quizapp.dtos.questions.QuestionRequest;
+import com.hai.quizapp.dtos.questions.QuestionResponse;
 
 public interface QuestionService {
 

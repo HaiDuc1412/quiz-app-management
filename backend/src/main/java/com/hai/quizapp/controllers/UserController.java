@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +21,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hai.quizapp.dtos.ApiResponse;
-import com.hai.quizapp.dtos.UserRequest;
-import com.hai.quizapp.dtos.UserResponse;
+import com.hai.quizapp.dtos.PageResponseDTO;
+import com.hai.quizapp.dtos.users.UserRequest;
+import com.hai.quizapp.dtos.users.UserResponse;
 import com.hai.quizapp.services.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +37,8 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 @Validated
+@PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "User Management", description = "APIs for managing users")
 public class UserController {
 
@@ -49,7 +54,7 @@ public class UserController {
 
     @Operation(summary = "Get all users", description = "Retrieves all active users with pagination")
     @GetMapping
-    public ResponseEntity<ApiResponse<Page<UserResponse>>> getAllUsers(
+    public ResponseEntity<ApiResponse<PageResponseDTO<UserResponse>>> getAllUsers(
             @Parameter(description = "Page number (0-based)")
             @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Page size")
@@ -62,7 +67,8 @@ public class UserController {
         Sort.Direction sortDirection = Sort.Direction.fromString(direction);
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
         Page<UserResponse> users = userService.getAllUsers(pageable);
-        return ResponseEntity.ok(ApiResponse.success(users));
+        PageResponseDTO<UserResponse> response = PageResponseDTO.from(users);
+        return ResponseEntity.ok(ApiResponse.success(response));
     }
 
     @Operation(summary = "Get user by ID", description = "Retrieves a specific user")

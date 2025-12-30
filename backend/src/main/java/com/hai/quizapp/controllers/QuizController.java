@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hai.quizapp.dtos.ApiResponse;
-import com.hai.quizapp.dtos.QuizRequest;
-import com.hai.quizapp.dtos.QuizResponse;
+import com.hai.quizapp.dtos.PageResponseDTO;
+import com.hai.quizapp.dtos.quizzes.QuizRequest;
+import com.hai.quizapp.dtos.quizzes.QuizResponse;
 import com.hai.quizapp.services.QuizService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +38,8 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/v1/quizzes")
 @RequiredArgsConstructor
 @Validated
+@PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "Quiz Management", description = "APIs for managing quizzes")
 public class QuizController {
 
@@ -50,7 +55,7 @@ public class QuizController {
 
     @Operation(summary = "Get all quizzes", description = "Retrieves all active quizzes with pagination")
     @GetMapping
-    public ResponseEntity<ApiResponse<Page<QuizResponse>>> getAllQuizzes(
+    public ResponseEntity<ApiResponse<PageResponseDTO<QuizResponse>>> getAllQuizzes(
             @Parameter(description = "Page number (0-based)")
             @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Page size")
@@ -63,7 +68,31 @@ public class QuizController {
         Sort.Direction sortDirection = Sort.Direction.fromString(direction);
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
         Page<QuizResponse> quizzes = quizService.getAllQuizzes(pageable);
-        return ResponseEntity.ok(ApiResponse.success(quizzes));
+        PageResponseDTO<QuizResponse> response = PageResponseDTO.from(quizzes);
+        return ResponseEntity.ok(ApiResponse.success(response));
+    }
+
+    @Operation(summary = "Search quizzes", description = "Search quizzes by title and/or active status with pagination")
+    @GetMapping("/search")
+    public ResponseEntity<ApiResponse<PageResponseDTO<QuizResponse>>> searchQuizzes(
+            @Parameter(description = "Title to search for (partial match, case-insensitive)")
+            @RequestParam(required = false) String title,
+            @Parameter(description = "Active status filter (true/false)")
+            @RequestParam(required = false) Boolean active,
+            @Parameter(description = "Page number (0-based)")
+            @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "Page size")
+            @RequestParam(defaultValue = "10") int size,
+            @Parameter(description = "Sort field")
+            @RequestParam(defaultValue = "createdAt") String sort,
+            @Parameter(description = "Sort direction")
+            @RequestParam(defaultValue = "DESC") String direction) {
+
+        Sort.Direction sortDirection = Sort.Direction.fromString(direction);
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, sort));
+        Page<QuizResponse> quizzes = quizService.searchQuizzes(title, active, pageable);
+        PageResponseDTO<QuizResponse> response = PageResponseDTO.from(quizzes);
+        return ResponseEntity.ok(ApiResponse.success(response, "Quizzes searched successfully"));
     }
 
     @Operation(summary = "Get quiz by ID", description = "Retrieves a specific quiz with all questions")

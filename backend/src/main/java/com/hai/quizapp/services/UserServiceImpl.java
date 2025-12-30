@@ -10,8 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hai.quizapp.dtos.UserRequest;
-import com.hai.quizapp.dtos.UserResponse;
+import com.hai.quizapp.dtos.users.UserRequest;
+import com.hai.quizapp.dtos.users.UserResponse;
 import com.hai.quizapp.entities.Role;
 import com.hai.quizapp.entities.User;
 import com.hai.quizapp.exceptions.ResourceNotFoundException;

@@ -1,4 +1,4 @@
-package com.hai.quizapp.dtos;
+package com.hai.quizapp.dtos.quizzes;
 
 import java.util.Set;
 import java.util.UUID;
