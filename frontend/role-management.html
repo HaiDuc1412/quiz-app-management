@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Management - Quizzes</title>
+    <title>Role Management</title>
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/user-management.css" />
+    <link rel="stylesheet" href="css/role-management.css" />
   </head>
   <body>
     <!-- Header -->
@@ -18,14 +18,14 @@
     <main class="main-content">
       <!-- Search Section -->
       <div class="search-section">
-        <h2>User Management</h2>
+        <h2>Role Management</h2>
         <div class="search-fields">
           <div class="field-group">
             <label for="searchName">Name</label>
             <input
               type="text"
               id="searchName"
-              placeholder="Enter username to search"
+              placeholder="Enter role name to search"
             />
           </div>
           <div class="field-group">
@@ -66,18 +66,15 @@
         </div>
       </div>
 
-      <!-- User List Table -->
-      <div class="user-list-section">
-        <h2>User List</h2>
+      <!-- Role List Table -->
+      <div class="role-list-section">
+        <h2>Role List</h2>
         <div class="table-container">
-          <table class="user-table" id="userTable">
+          <table class="role-table" id="roleTable">
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>User Name</th>
-                <th>Phone Number</th>
+                <th>Name</th>
+                <th>Description</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -85,10 +82,7 @@
             <tbody>
               <tr>
                 <td>Admin</td>
-                <td>User</td>
-                <td>admin@domain.com</td>
-                <td>admin</td>
-                <td>+84987654321</td>
+                <td>Full Access</td>
                 <td>Yes</td>
                 <td class="action-buttons">
                   <button class="btn-edit" title="Edit">
@@ -109,58 +103,28 @@
               </tr>
               <tr>
                 <td>Editor</td>
+                <td>Editable</td>
+                <td>Yes</td>
+                <td class="action-buttons">
+                  <button class="btn-edit" title="Edit">
+                    <img
+                      src="assets/icons/edit-icon.png"
+                      alt="Edit"
+                      class="btn-icon"
+                    />
+                  </button>
+                  <button class="btn-delete" title="Delete">
+                    <img
+                      src="assets/icons/delete-icon.png"
+                      alt="Delete"
+                      class="btn-icon"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
                 <td>User</td>
-                <td>editor@domain.com</td>
-                <td>editor</td>
-                <td>+84987654321</td>
-                <td>Yes</td>
-                <td class="action-buttons">
-                  <button class="btn-edit" title="Edit">
-                    <img
-                      src="assets/icons/edit-icon.png"
-                      alt="Edit"
-                      class="btn-icon"
-                    />
-                  </button>
-                  <button class="btn-delete" title="Delete">
-                    <img
-                      src="assets/icons/delete-icon.png"
-                      alt="Delete"
-                      class="btn-icon"
-                    />
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Cong</td>
-                <td>Dinh</td>
-                <td>congdinh@domain.com</td>
-                <td>congdinh</td>
-                <td>+84987654321</td>
-                <td>Yes</td>
-                <td class="action-buttons">
-                  <button class="btn-edit" title="Edit">
-                    <img
-                      src="assets/icons/edit-icon.png"
-                      alt="Edit"
-                      class="btn-icon"
-                    />
-                  </button>
-                  <button class="btn-delete" title="Delete">
-                    <img
-                      src="assets/icons/delete-icon.png"
-                      alt="Delete"
-                      class="btn-icon"
-                    />
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Van</td>
-                <td>Nguyen</td>
-                <td>vannguyen@domain.com</td>
-                <td>vannguyen</td>
-                <td>+84987654321</td>
+                <td>Customer</td>
                 <td>Yes</td>
                 <td class="action-buttons">
                   <button class="btn-edit" title="Edit">
@@ -232,99 +196,39 @@
         </div>
       </div>
 
-      <!-- Add User Form -->
-      <div class="add-user-section" id="addUserSection">
-        <h2>Add User</h2>
-        <form id="userForm" class="user-form">
+      <!-- Add Role Form -->
+      <div class="add-role-section" id="addRoleSection">
+        <h2>Add Role</h2>
+        <form id="roleForm" class="role-form">
           <div class="form-row">
             <div class="form-group">
-              <label for="firstName">First Name</label>
+              <label for="roleName">Name</label>
               <input
                 type="text"
-                id="firstName"
-                placeholder="Enter your first name"
-                required
+                id="roleName"
+                placeholder="Enter role name"
               />
             </div>
             <div class="form-group">
-              <label for="lastName">Last Name</label>
+              <label for="roleDescription">Description</label>
               <input
                 type="text"
-                id="lastName"
-                placeholder="Enter your last name"
-                required
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
+                id="roleDescription"
                 placeholder="Enter your email"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="username">User Name</label>
-              <input
-                type="text"
-                id="username"
-                placeholder="Enter your user name"
-                required
               />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="confirmPassword">Confirm Password</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                placeholder="Confirm your password"
-                required
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="dateOfBirth">Date of Birth</label>
-              <input
-                type="date"
-                id="dateOfBirth"
-                placeholder="Enter your date of birth"
-              />
-            </div>
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                placeholder="Enter your phone number"
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="userStatus">Status</label>
+              <label for="roleStatus">Status</label>
               <div class="checkbox-field">
-                <input type="checkbox" id="userStatus" checked />
-                <label for="userStatus">Active</label>
+                <input type="checkbox" id="roleStatus" checked />
+                <label for="roleStatus">Active</label>
               </div>
             </div>
           </div>
           <div class="form-actions">
-            <button type="button" class="btn-cancel" id="btnCancel">
+            <button type="button" class="btn-cancel" id="btnCancelRole">
               <img
                 src="assets/icons/clear-icon.png"
                 alt="Cancel"
@@ -414,6 +318,6 @@
     </footer>
 
     <script src="js/load-components.js"></script>
-    <script src="js/user-management.js"></script>
+    <script src="js/role-management.js"></script>
   </body>
 </html>

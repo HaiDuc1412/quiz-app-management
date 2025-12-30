@@ -122,7 +122,7 @@ function isValidPhone(phone) {
 }
 
 function goHome() {
-  window.location.href = "/";
+  globalThis.location.href = "/";
 }
 
 const inputs = document.querySelectorAll("input");

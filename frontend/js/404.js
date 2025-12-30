@@ -1,5 +1,5 @@
 function goHome() {
-  window.location.href = "/";
+  globalThis.location.href = "/";
 }
 
 document.addEventListener("keypress", function (e) {

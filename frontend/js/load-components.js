@@ -1,6 +1,4 @@
-// Load header and sidebar components
 document.addEventListener('DOMContentLoaded', function() {
-  // Load header
   fetch('components/header.html')
     .then(response => response.text())
     .then(data => {
@@ -8,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error loading header:', error));
 
-  // Load sidebar
   fetch('components/sidebar.html')
     .then(response => response.text())
     .then(data => {

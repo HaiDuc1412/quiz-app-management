@@ -1,0 +1,200 @@
+/* Question Management Specific Styles */
+
+/* Question List Section */
+.question-list-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.question-list-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.question-table thead {
+  background-color: #f8f9fa;
+}
+
+.question-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.question-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+  vertical-align: middle;
+}
+
+.question-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Add Question Section */
+.add-question-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.add-question-section.active {
+  display: block;
+}
+
+.add-question-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.question-form {
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
+
+.btn-show-answers {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.btn-show-answers:hover {
+  background-color: #3a7bc8;
+}
+
+/* Answer List Section */
+.answer-list-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.answer-list-section.active {
+  display: block;
+}
+
+.answer-list-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.answer-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.answer-table thead {
+  background-color: #f8f9fa;
+}
+
+.answer-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.answer-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+  vertical-align: middle;
+}
+
+.answer-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.add-answer-actions {
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Add Answer Section */
+.add-answer-section {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+.add-answer-section.active {
+  display: block;
+}
+
+.add-answer-section h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.answer-form {
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
+
+/* Action buttons alignment */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit,
+.btn-delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  transform: scale(1.2);
+}
