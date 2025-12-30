@@ -15,10 +15,12 @@ import com.hai.quizapp.entities.Quiz;
 public interface QuizRepository extends JpaRepository<Quiz, UUID> {
 
     @EntityGraph(attributePaths = {"questions", "questions.answers"})
+    @Override
     Optional<Quiz> findById(UUID id);
 
     @EntityGraph(attributePaths = {"questions"})
     Page<Quiz> findByActiveTrue(Pageable pageable);
 
+    @Override
     Page<Quiz> findAll(Pageable pageable);
 }
